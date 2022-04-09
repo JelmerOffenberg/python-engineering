@@ -1,0 +1,7 @@
+# Training material
+*.pptx
+*.drawio
+
+# PyCharm
+__pycache__/**
+.idea
