@@ -3,15 +3,13 @@ import logging
 
 from pathlib import Path
 from joblib import dump, load
-from sklearn.linear_model import LogisticRegression
-
 
 def save_model(model, name):
     path = Path(__file__).parent.parent.parent / "models" / name
     dump(model, path)
 
 
-def load_model(name) -> LogisticRegression:
+def load_model(name)
     path = Path(__file__).parent.parent.parent / "models" / name
     return load(path)
 
