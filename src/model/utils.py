@@ -9,7 +9,7 @@ def save_model(model, name):
     dump(model, path)
 
 
-def load_model(name)
+def load_model(name):
     path = Path(__file__).parent.parent.parent / "models" / name
     return load(path)
 
