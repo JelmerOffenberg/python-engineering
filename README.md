@@ -6,6 +6,7 @@ As discussed during the presentation, the type of application that you're going 
 
 Before we dive into building the application, we need to set up the environment. If you followed the instructions in the preparation e-mail, then this should be easy
 and you can probably get started straight away. 
+
 ---
 ## Exercise 0: Environment
 Before we can start, you'll need to set up your working environment. Additionally, we're going to install the skeleton of the application in our Python environment. This makes it easy to develop.
