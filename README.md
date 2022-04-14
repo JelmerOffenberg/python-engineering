@@ -20,7 +20,7 @@ This is the preferred approach. You can use a full-fledged code editor in the cl
 - Open a new terminal and enter: `git clone https://github.com/JelmerOffenberg/python-engineering`. This will clone the repository in your working directory. You should see a folder appear on the left.
 - Right-click on the folder and click "open as workspace" <br> ![open-workspace](docs/open-workspace.png)<br>
 - Your workspace should look something like this: <br> ![cloud-environment](docs/cloud-environment.png)<br>
-- Now you can install our application using `pip3 install -e .`
+- You can install your application by running `pip3 install -e .` in the terminal
 - You can run the API by typing `bash start.sh`
 - You can view your API by launching a web preview. Make sure to change the port to 8000 (required once). <br> ![expose-api](docs/expose-api.png)
 - To view the documentation, replace the part at the end of the URL (after the `/` with `/docs`)
