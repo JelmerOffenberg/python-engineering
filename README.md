@@ -8,15 +8,34 @@ Before we dive into building the application, we need to set up the environment.
 and you can probably get started straight away. 
 
 ---
-## Exercise 0: Environment
+# Exercise 0: Environment
+
+## Option 1: VSCode in the cloud (easy)
+This is the preferred approach. You can use a full-fledged code editor in the cloud, free to use. You just need a Google account. Using a local environment is possible, but there have been problems in the past, specifically with Windows devices.
+
+### Steps:
+- Log on to: https://console.cloud.google.com/
+- Click on "activate cloud shell" <br> ![cloud-shell](docs/cloud-shell.png)<br>
+- Click on "open editor" <br> ![open-editor](docs/open-editor.png)<br>
+- Open a new terminal and enter: `git clone https://github.com/JelmerOffenberg/python-engineering`. This will clone the repository in your working directory. You should see a folder appear on the left.
+- Right-click on the folder and click "open as workspace" <br> ![open-workspace](docs/open-workspace.png)<br>
+- Your workspace should look something like this: <br> ![cloud-environment](docs/cloud-environment.png)<br>
+- Now you can install our application using `pip3 install -e .`
+- You can run the API by typing `bash start.sh`
+- You can view your API by launching a web preview. Make sure to change the port to 8000 (required once). <br> ![expose-api](docs/expose-api.png)
+- To view the documentation, replace the part at the end of the URL (after the `/` with `/docs`)
+
+## Option 2: Local environment (hard)
 Before we can start, you'll need to set up your working environment. Additionally, we're going to install the skeleton of the application in our Python environment. This makes it easy to develop.
+
+### Steps:
 - Download or clone this git repository
 - Set up your environment in PyCharm. You can use Conda for this, see [this](https://docs.anaconda.com/anaconda/user-guide/tasks/pycharm/) link.
 - Install the dependencies from the setup.py file (use `pip install -e .` in your project folder). You will need to run this command from a PyCharm terminal
 - Try to run the `uvicorn main:app --reload` from the terminal in PyCharm. This should start the API and provide you with a link.
 
 ### Checkpoint
-At the end you should have a PyCharm installation with the project cloned to a folder on your computer. You should have this folder loaded in PyCharm and have a Python environment with the setup.py file installed. You can do these steps from the command line.
+At the end you should have a working environment with the project cloned to a folder on your computer or the cloud.
 
 ---
 ## Exercise 1: Project Structure
@@ -36,9 +55,9 @@ The goal of this exercise is to familiarise yourself with the FastAPI interface 
 
 #### Steps
 - Explore the `main.py` file in the main directory. You can see there is a function available that describes the `hello` endpoint. Endpoints in FastAPI are **functions** annotated with a _decorator_ (`@app.get("/hello")`). `Hello` is one of the endpoints you can interact with. Let's first start the API. For this you need to open your terminal in PyCharm (make sure you're in the right python environment) and run:
-  `uvicorn main:app --reload`
+  `uvicorn main:app --reload`. Run `bash start.sh` from the terminal if you're running in the cloud to start the API.
 
-  If the command is successful, you should be able to navigate to the webserver `https://127.0.0.1:8000/hello`.
+  If the command is successful, you should be able to navigate to the webserver `https://127.0.0.1:8000/hello`. Use the web preview if you're working in the cloud.
 
 - Try to modify the returned value in `main.py`, save the file and visit the webpage once more. The API will reload on save (this is why we added the `--reload` flag in the previous step).
 
