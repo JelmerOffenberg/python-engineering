@@ -90,8 +90,8 @@ The first module that we'll create is the data loader. We'll use the build-in da
 #### Creating the data loader function
 
 - We'll be using the [following](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html#sklearn.datasets.load_iris) dataset
-- Create a new Python file in the data module, give it an appropriate name, this will contain your data loading functionality.
-- Create a function with an appropriate name that <u>returns</u> the `X` and `y` of the `iris` dataset. You need to import some dependencies, check the scikit-learn documentation link for this.
+- Create a new Python file in the data module called `load_data`, this will contain your data loading functionality.
+- Create a function called `load_iris_data()` that returns the `X` and `y` of the `iris` dataset. You need to import some dependencies, check the scikit-learn documentation link for this.
 
 #### Write unit tests for the data loader function
 
@@ -137,15 +137,9 @@ I'm deliberately reducing how specific the instructions are the further you get.
 
 - Remember that you need data to train a model, so you'll need to use your data loader to make the data available in this module.
 
-- Write a functions to train a scikit-learn model. You know the type of data that we have, so you can pick an appropriate model.
+- Write a functions that uses our `load_iris_data()` function and trains a `RandomForecastClassifier()`, which is a scikit-learn model. Use the `save_model` function from `models/utils.py` in your function to make sure that we can store the model on disk.
 
-- Write a function your other functions such as data loading, model training and model storing. Use the `save_model` function in your `train` module to make sure that we can store the model on disk. We'll need it for the API!
-
-- You can run your python script from the command line by adding the following code to the bottom of your script.
-
-  ![main](docs/python-main.png)
-
-- Make your `train.py` file executable by adding the name equals main statement.
+- You can run your python script to see what's going on. You can also add `print()` statements or use the logger in `main.py` to log your info. You can run your file by right-clicking and click `run` or if you're in the cloud: `run python file in terminal`.
 
 - If you're going fast, feel free to add some unit tests for your new code. Otherwise, skip ahead to the next part
 
