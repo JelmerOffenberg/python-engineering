@@ -15,5 +15,5 @@ setup(
         "pydantic",
         "jupyter"
     ],
-    python_requires="==3.8.*",
+    python_requires="==3.9.*",
 )
