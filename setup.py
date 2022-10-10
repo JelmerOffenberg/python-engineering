@@ -11,7 +11,7 @@ setup(
         "pandas",
         "pytest",
         "scikit-learn",
-        "fastapi",
+        "fastapi[all]",
         "pydantic",
         "jupyter"
     ],
