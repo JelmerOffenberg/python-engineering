@@ -4,4 +4,4 @@ install:
 	pip install -e '.[dev]'
 
 run:
-	bash ~/.local/bin/uvicorn main:app --reload
+	~/.local/bin/uvicorn main:app --reload
