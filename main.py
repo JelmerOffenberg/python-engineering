@@ -1,9 +1,8 @@
 from fastapi import FastAPI
-from model.utils import load_model, setup_logger
+from model.utils import setup_logger
 
 logger = setup_logger()
 app = FastAPI()
-
 
 @app.get("/hello")
 def hello():

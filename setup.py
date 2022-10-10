@@ -11,8 +11,9 @@ setup(
         "pandas",
         "pytest",
         "scikit-learn",
-        "fastapi[all]",
-        "pydantic"
+        "fastapi",
+        "pydantic",
+        "jupyter"
     ],
-    python_requires="==3.9.*",
+    python_requires="==3.8.*",
 )
