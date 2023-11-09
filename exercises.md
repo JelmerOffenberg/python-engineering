@@ -1,6 +1,7 @@
 # Python Engineering - FastAPI
 In this training session you'll build a simple API using FastAPI. FastAPI is a lightweight Python framework for building APIs. It's easy to use, and it's very fast. It's also very well documented. You can find the documentation [here](https://fastapi.tiangolo.com/). Make sure you use the documentation if you get stuck, it provides tons of examples, and it's very easy to follow.
 
+---
 
 ### Exercise 1: Get the basic API up and running
 Explore the `main.py` file in the main directory. You can see there is a function available that describes the `hello` endpoint. Endpoints in FastAPI are **functions** annotated with a _decorator_ (`@app.get("/hello")`). 
