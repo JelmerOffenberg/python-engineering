@@ -14,8 +14,7 @@ This is the preferred approach. You can use a full-fledged code editor in the cl
 - Your workspace should look something like this: <br> ![cloud-environment](docs/cloud-environment.png)<br>
 - You can install your application by running `make install` in the terminal
 - You can run the API by typing `make run`
-- You can view your API by launching a web preview. Make sure to change the port to 8000 (required once). <br> ![expose-api](docs/expose-api.png)
-- To view the documentation, replace the part at the end of the URL (after the `/` with `/docs`)
+- You can view your API by launching a web preview. <br> ![expose-api](docs/expose-api.png)
 
 ### Checkpoint
 At the end you should have a working environment in the cloud. The exercises are located in the `exercises.md` file. You can find the exercises [here](exercises.md).
