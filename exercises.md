@@ -8,6 +8,7 @@ Explore the `main.py` file in the main directory. You can see there is a functio
 `Hello` is one of the endpoints you can interact with. Let's first start the API. Run `bash start.sh` from the terminal if you're running in the cloud to start the API.
 
 If the command is successful, you should be able to navigate to the webserver. Use the web preview if you're working in the cloud. It's possible that you get an error the first time. Make sure to remove anything that comes after the `/` in the URL and just add `/docs` to the end. This will show you the documentation for your API. 
+
 ![expose-api](docs/expose-api.png) <br>
 
 ---
