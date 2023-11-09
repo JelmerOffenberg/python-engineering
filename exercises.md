@@ -8,7 +8,7 @@ Explore the `main.py` file in the main directory. You can see there is a functio
 `Hello` is one of the endpoints you can interact with. Let's first start the API. Run `bash start.sh` from the terminal if you're running in the cloud to start the API.
 
 If the command is successful, you should be able to navigate to the webserver. Use the web preview if you're working in the cloud. It's possible that you get an error the first time. Make sure to remove anything that comes after the `/` in the URL and just add `/docs` to the end. This will show you the documentation for your API. 
-
+<br>
 ![expose-api](docs/expose-api.png) <br>
 
 ---
@@ -16,14 +16,15 @@ If the command is successful, you should be able to navigate to the webserver. U
 ### Exercise 2: Create your first API request
 - Go to the web preview from the previous exercise. This is what we call the "Swagger UI" it contains the OpenAPI specifications for your API. It's a nice page because it allows you to interact with your API. Via an interface. It also lists the inputs that are expected for each endpoint!
 - Use the try-out functionality to send a `GET` request to your `/hello` endpoint.
-- Check out the console where you are running the API from. Can you see the request in the logs?
+- Check out the console where you are running the API from. Can you see the request in the logs? 
+<br>
 ![stage_1](docs/request_stage_1.png)
 
 ---
 
 ### Exercise 3: Retrieving data via your API
 In this exercise we'll mimic a simple database look-up in the API. In practice, you would probably use an external database for storing your information. However, for this exercise we'll use something much simpler: a python `dictionary` or a self-defined class/object. This way we're in full control of what's happening, and we can quickly experiment.
-
+<br>
 ![stage_2](docs/request_stage_2.png)
 
 ---
