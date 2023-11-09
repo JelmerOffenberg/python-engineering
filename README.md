@@ -2,14 +2,6 @@
 In this training session you get the chance to familiarise yourself with the many different aspects of ML engineering and software engineering.
 As discussed during the presentation, the type of application that you're going to build today looks as follows:
 
-![application](docs/model-api.png)
-
-Before we dive into building the application, we need to set up the environment. If you followed the instructions in the preparation e-mail, then this should be easy
-and you can probably get started straight away. 
-
----
-# Exercise 0: Environment
-
 ## VSCode in the cloud
 This is the preferred approach. You can use a full-fledged code editor in the cloud, free to use. You just need a Google account. Using a local environment is possible, but there have been problems in the past, specifically with Windows devices.
 
@@ -26,4 +18,4 @@ This is the preferred approach. You can use a full-fledged code editor in the cl
 - To view the documentation, replace the part at the end of the URL (after the `/` with `/docs`)
 
 ### Checkpoint
-At the end you should have a working environment in the cloud.
+At the end you should have a working environment in the cloud. The exercises are located in the `exercises.md` file. You can find the exercises [here](exercises.md).
