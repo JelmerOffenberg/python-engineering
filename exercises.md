@@ -18,7 +18,7 @@ If the command is successful, you should be able to navigate to the webserver. U
 - Go to the web preview from the previous exercise. This is what we call the "Swagger UI" it contains the OpenAPI specifications for your API. It's a nice page because it allows you to interact with your API. Via an interface. It also lists the inputs that are expected for each endpoint!
 - Use the try-out functionality to send a `GET` request to your `/hello` endpoint.
 - Check out the console where you are running the API from. Can you see the request in the logs? 
-<br>
+
 ![stage_1](docs/request_stage_1.png)
 
 ---
