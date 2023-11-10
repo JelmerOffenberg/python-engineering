@@ -1,89 +1,76 @@
 from fastapi import FastAPI
-from model.utils import load_model, setup_logger
-from api.requests import PredictRequest, PredictRequestEx6
+from model.utils import setup_logger
+from pydantic import BaseModel
+from typing import Union
+from time import sleep
 
 logger = setup_logger()
-app = FastAPI()
-
-# Global initialisation
-model = load_model(name='local')
-
-simple_cache = []
-
-@app.get("/hello")
-def hello():
-    return {"answer": "goodbye"}
+app = FastAPI(docs_url="/", redoc_url=None)
 
 
-@app.post("/predict")
-def predict(data: PredictRequest):
-    # Transform incoming request data class into a vector
-    vector = [[
-        data.sepal_length,
-        data.sepal_width,
-        data.petal_length,
-        data.petal_width
-    ]]
-
-    # Call global model predict on the request vector
-    predict = model.predict(vector)[0]
-    logger.info(f"Predict value is: {predict}")
-
-    # Return result
-    return {"result": f"{predict}"}
+class PostName(BaseModel):
+    name: str
+    value: Union[str, int]
 
 
-@app.post("/predict_ex6")
-def predict(data: PredictRequestEx6):
-    if data.test:
-        logger.info(data)
-        return {"result": 42}
+class DataStore:
+    def __init__(self):
+        self.database = {}
 
+    def add_data(self, key: str, value: str):
+        self.database[key] = value
+        return self.database
+
+    def get_data(self, key):
+        logger.info("Database hit")
+        sleep(5)
+        return self.database[key]
+
+    def delete_data(self, key):
+        del self.database[key]
+        return self.database
+
+
+class Cache:
+    def __init__(self):
+        self.database = {}
+
+    def key_exists(self, key: str) -> bool:
+        return key in self.database.keys()
+
+    def add_data(self, key: str, value: str):
+        self.database[key] = value
+        return self.database
+
+    def get_data(self, key):
+        logger.info("Cache hit")
+        return self.database[key]
+
+    def delete_data(self, key):
+        del self.database[key]
+        return self.database
+
+
+data_store = DataStore()
+cache = Cache()
+
+
+@app.get("/name")
+def get_name(name: str):
+    if cache.key_exists(name):
+        return cache.get_data(name)
     else:
-        # Transform incoming request data class into a vector
-        vector = [[
-            data.sepal_length,
-            data.sepal_width,
-            data.petal_length,
-            data.petal_width
-        ]]
+        value = data_store.get_data(name)
+        cache.add_data(key=name, value=value)
 
-        # Call global model predict on the request vector
-        predict = model.predict(vector)[0]
-        logger.info(f"Predict value is: {predict}")
-
-        # Return result
-        return {"result": f"{predict}"}
+        return value
 
 
-@app.post("/predict_ex7")
-def predict(data: PredictRequest):
-    # Transform incoming request data class into a vector
-    vector = [[
-        data.sepal_length,
-        data.sepal_width,
-        data.petal_length,
-        data.petal_width
-    ]]
-
-    # Only run this if there are cache variables
-    if len(simple_cache) > 0:
-        for cache_data, cache_result in simple_cache:
-            if data == cache_data:
-                logger.info("Cache hit")
-                return {"result": f"{cache_result}"}
-
-    # Call global model predict on the request vector
-    predict = model.predict(vector)[0]
-    logger.info(f"Predict value is: {predict}")
-
-    # Caching result
-    simple_cache.append((data, predict))
-
-    # Return result
-    return {"result": f"{predict}"}
+@app.post("/name")
+def post_name(input_: PostName):
+    return data_store.add_data(key=input_.name, value=input_.value)
 
 
-@app.get("/cache")
-def predict():
-    return {"result": f"{simple_cache}"}
+@app.delete("/name")
+def delete_name(key: str):
+    return data_store.delete_data(key)
